@@ -3,10 +3,14 @@ import json
 import requests
 import random
 
+
+#wordpress credentials / jwt token
 site_url = 'https://site.url/wp-json/v2/posts'
 username = 'username'
 password = 'password'
 jwt_token = "jwt_token"
+
+#scrapes top US headlines and selects a random one. Headline categories / country can be changed:  https://newsapi.org/docs
 
 def headlines():
     headline_list = []
@@ -20,6 +24,7 @@ def headlines():
     return(random.choice(headline_list))
 
 
+#uses openai to generate a blog post based on the headline text
 def airesult():
     openapi_api_key = 'openapi_api_key'
     prompt = f"In your own words, create a blog post about the following topic: {headlines()}"
